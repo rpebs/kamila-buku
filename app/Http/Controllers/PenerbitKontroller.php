@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BukuModel;
 use App\Models\PenerbitModel;
 use Exception;
 use Illuminate\Http\Request;
@@ -46,12 +47,21 @@ class PenerbitKontroller extends Controller
 
     public function delete($id)
     {
-        try {
+        // try {
+        //     PenerbitModel::destroy($id);
+        //     return back()->with('success', 'Data Berhasil Dihapus');
+        // } catch (Exception $e) {
+        //     $message = $e->getMessage();
+        //     return back()->withErrors($message)->withInput();
+        // }
+
+        $data = BukuModel::where('penerbits_id', $id)->count();
+
+        if ($data != 0) {
+            return back()->withErrors(['Data sedang digunakan!'])->withInput();
+        } else {
             PenerbitModel::destroy($id);
             return back()->with('success', 'Data Berhasil Dihapus');
-        } catch (Exception $e) {
-            $message = $e->getMessage();
-            return back()->withErrors($message)->withInput();
         }
     }
 }

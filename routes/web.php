@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::post('admin/buku/update', [BukuController::class, 'edit'])->name('edit.buku');
     Route::get('/admin/buku/delete/{id}', [BukuController::class, 'delete'])->name('hapus.buku');
     Route::get('admin/logout', [AdminController::class, 'logout'])->name('logout');
-    Route::get('admin/profil', [AdminController::class, 'profil'])->name('profil');
+    // Route::get('admin/profil', [AdminController::class, 'profil'])->name('profil');
 
     Route::get('admin/kategori', [KategoriController::class, 'index'])->name('data.kategori');
     Route::post('admin/kategori/add', [KategoriController::class, 'store'])->name('tambah.kategori');

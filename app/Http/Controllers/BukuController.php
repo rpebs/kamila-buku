@@ -44,15 +44,16 @@ class BukuController extends Controller
 
     public function edit(Request $request)
     {
+
         $validate = $request->validate([
             'judul' => 'required',
-            'kategori' => 'required',
-            'penerbit_id' => 'required',
+            'kategoris_id' => 'required',
+            'penerbits_id' => 'required',
             'penulis' => 'required',
             'nomor_buku' => 'required',
             'tahun_terbit' => 'required',
             'halaman' => 'required',
-            'jum    lah' => 'required|integer'
+            'jumlah' => 'required|integer'
         ]);
 
 

@@ -88,7 +88,7 @@
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="addmodal">Edit Jurnal</h5>
+                                                <h5 class="modal-title" id="addmodal">Edit Buku</h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -132,7 +132,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="nama">Nomor</label>
-                                                        <input type="text" class="form-control" name="volume"
+                                                        <input type="text" class="form-control" name="nomor_buku"
                                                             id="nama" value="{{ $d->nomor_buku }}">
                                                     </div>
                                                     <div class="form-group">
@@ -187,12 +187,12 @@
                         <div class="form-group">
                             <label for="nama">Judul</label>
                             <input type="text" class="form-control" name="judul" id="nama"
-                                placeholder="Judul Buku">
+                                placeholder="Judul Buku" required>
                         </div>
                         <div class="form-group">
                             <label for="nama">Kategori</label>
-                            <select class="form-control" name="kategoris_id" id="">
-                                <option value="">Pilih Kategori</option>
+                            <select class="form-control" name="kategoris_id">
+                                <option>Pilih Kategori</option>
                                 @foreach ($kategori as $k)
                                     <option value="{{ $k->id }}">{{ $k->nama }}</option>
                                 @endforeach
@@ -210,27 +210,27 @@
                         <div class="form-group">
                             <label for="nama">Penulis</label>
                             <input type="text" class="form-control" name="penulis" id="nama"
-                                placeholder="Nama penulis">
+                                placeholder="Nama penulis" required>
                         </div>
                         <div class="form-group">
                             <label for="nama">Nomor</label>
                             <input type="text" class="form-control" name="nomor_buku" id="nama"
-                                placeholder="Nomor Buku">
+                                placeholder="Nomor Buku" required>
                         </div>
                         <div class="form-group">
                             <label for="nama">Tahun Terbit</label>
                             <input type="number" class="form-control" name="tahun_terbit" id="nama"
-                                placeholder="Tahun terbit">
+                                placeholder="Tahun terbit" required>
                         </div>
                         <div class="form-group">
                             <label for="nama">Halaman</label>
                             <input type="number" class="form-control" name="halaman" id="nama"
-                                placeholder="Halaman">
+                                placeholder="Halaman" required>
                         </div>
                         <div class="form-group">
                             <label for="nama">Jumlah</label>
                             <input type="number" class="form-control" name="jumlah" id="nama"
-                                placeholder="Jumlah">
+                                placeholder="Jumlah" required>
                         </div>
                 </div>
                 <div class="modal-footer">

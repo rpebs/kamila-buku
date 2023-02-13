@@ -125,7 +125,7 @@
                         <div class="form-group">
                             <label for="nama">Nama penerbit</label>
                             <input type="text" class="form-control" name="nama" id="nama"
-                                placeholder="Nama penerbit">
+                                placeholder="Nama penerbit" autofocus>
                         </div>
                 </div>
                 <div class="modal-footer">

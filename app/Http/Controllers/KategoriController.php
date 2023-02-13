@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BukuModel;
 use Exception;
 use App\Models\KategoriModel;
 use Illuminate\Http\Request;
@@ -46,12 +47,21 @@ class KategoriController extends Controller
 
     public function delete($id)
     {
-        try {
+        // try {
+        //     KategoriModel::destroy($id);
+        //     return back()->with('success', 'Data Berhasil Dihapus');
+        // } catch (Exception $e) {
+        //     $message = $e->getMessage();
+        //     return back()->withErrors($message)->withInput();
+        // }
+
+        $data = BukuModel::where('kategoris_id', $id)->count();
+
+        if ($data != 0) {
+            return back()->withErrors(['Data sedang digunakan!'])->withInput();
+        } else {
             KategoriModel::destroy($id);
             return back()->with('success', 'Data Berhasil Dihapus');
-        } catch (Exception $e) {
-            $message = $e->getMessage();
-            return back()->withErrors($message)->withInput();
         }
     }
 }
