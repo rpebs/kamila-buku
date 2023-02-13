@@ -49,9 +49,10 @@
                                 <th>Kategori</th>
                                 <th>Penerbit</th>
                                 <th>Penulis</th>
-                                <th>Volume</th>
+                                <th>Nomor</th>
                                 <th>Tahun</th>
-                                <th>Link</th>
+                                <th>Halaman</th>
+                                <th>Jumlah</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -60,15 +61,14 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td width="20%">{{ $d->judul }}</td>
-                                    <td>{{ $d->kategori->nama }}</td>
-                                    <td>{{ $d->penerbit->nama }}</td>
+                                    <td>{{ $d->kategoris->nama }}</td>
+                                    <td>{{ $d->penerbits->nama }}</td>
                                     <td>{{ $d->penulis }}</td>
                                     <td>{{ $d->nomor_buku }}</td>
                                     <td>{{ $d->tahun_terbit }}</td>
                                     <td>{{ $d->halaman }}</td>
                                     <td>{{ $d->jumlah }}</td>
-                                    <td><a class="btn btn-sm btn-primary" href="{{ $d->link }}"
-                                            target="_blank">Lihat</a></td>
+
                                     <td>
                                         <button class="btn btn-sm btn-primary" data-toggle="modal"
                                             data-target="#editmodal{{ $d->id }}"><i
@@ -105,22 +105,22 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="nama">Kategori</label>
-                                                        <select class="form-control" name="kategori_id" id="">
-                                                            <option value="{{ $d->kategori_id }}">
-                                                                {{ $d->kategori->nama_kategori }}</option>
+                                                        <select class="form-control" name="kategoris_id" id="">
+                                                            <option value="{{ $d->kategoris_id }}">
+                                                                {{ $d->kategoris->nama }}</option>
                                                             @foreach ($kategori as $k)
                                                                 <option value="{{ $k->id }}">
-                                                                    {{ $k->nama_kategori }}</option>
+                                                                    {{ $k->nama }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="nama">Penerbit</label>
-                                                        <select class="form-control" name="penerbit_id" id="">
-                                                            <option value="{{ $d->penerbit_id }}">
-                                                                {{ $d->penerbit->penerbit }}</option>
+                                                        <select class="form-control" name="penerbits_id" id="">
+                                                            <option value="{{ $d->penerbits_id }}">
+                                                                {{ $d->penerbits->nama }}</option>
                                                             @foreach ($penerbit as $p)
-                                                                <option value="{{ $p->id }}">{{ $p->penerbit }}
+                                                                <option value="{{ $p->id }}">{{ $p->nama }}
                                                                 </option>
                                                             @endforeach
                                                         </select>
@@ -131,9 +131,9 @@
                                                             id="nama" value="{{ $d->penulis }}">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="nama">Volume</label>
-                                                        <input type="number" class="form-control" name="volume"
-                                                            id="nama" value="{{ $d->volume }}">
+                                                        <label for="nama">Nomor</label>
+                                                        <input type="text" class="form-control" name="volume"
+                                                            id="nama" value="{{ $d->nomor_buku }}">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="nama">Tahun Terbit</label>
@@ -141,9 +141,14 @@
                                                             id="nama" value="{{ $d->tahun_terbit }}">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="nama">Link</label>
-                                                        <input type="text" class="form-control" name="link"
-                                                            id="nama" value="{{ $d->link }}">
+                                                        <label for="nama">Halaman</label>
+                                                        <input type="number" class="form-control" name="halaman"
+                                                            id="nama" value="{{ $d->halaman }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="nama">Jumlah</label>
+                                                        <input type="number" class="form-control" name="jumlah"
+                                                            id="nama" value="{{ $d->jumlah }}">
                                                     </div>
                                             </div>
                                             <div class="modal-footer">
@@ -186,19 +191,19 @@
                         </div>
                         <div class="form-group">
                             <label for="nama">Kategori</label>
-                            <select class="form-control" name="kategori_id" id="">
+                            <select class="form-control" name="kategoris_id" id="">
                                 <option value="">Pilih Kategori</option>
                                 @foreach ($kategori as $k)
-                                    <option value="{{ $k->id }}">{{ $k->nama_kategori }}</option>
+                                    <option value="{{ $k->id }}">{{ $k->nama }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="nama">Penerbit</label>
-                            <select class="form-control" name="penerbit_id" id="">
+                            <select class="form-control" name="penerbits_id" id="">
                                 <option value="">Pilih Penerbit</option>
                                 @foreach ($penerbit as $p)
-                                    <option value="{{ $p->id }}">{{ $p->penerbit }}</option>
+                                    <option value="{{ $p->id }}">{{ $p->nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -208,8 +213,8 @@
                                 placeholder="Nama penulis">
                         </div>
                         <div class="form-group">
-                            <label for="nama">Volume</label>
-                            <input type="number" class="form-control" name="volume" id="nama"
+                            <label for="nama">Nomor</label>
+                            <input type="text" class="form-control" name="nomor_buku" id="nama"
                                 placeholder="Volume Buku">
                         </div>
                         <div class="form-group">
@@ -218,9 +223,14 @@
                                 placeholder="Tahun terbit">
                         </div>
                         <div class="form-group">
-                            <label for="nama">Link</label>
-                            <input type="text" class="form-control" name="link" id="nama"
-                                placeholder="Tahun terbit">
+                            <label for="nama">Halaman</label>
+                            <input type="number" class="form-control" name="halaman" id="nama"
+                                placeholder="Halaman">
+                        </div>
+                        <div class="form-group">
+                            <label for="nama">Jumlah</label>
+                            <input type="number" class="form-control" name="jumlah" id="nama"
+                                placeholder="Jumlah">
                         </div>
                 </div>
                 <div class="modal-footer">

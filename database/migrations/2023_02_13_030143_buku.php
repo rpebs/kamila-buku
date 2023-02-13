@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->string('penulis');
-            $table->foreignId('penerbit_id');
+            $table->foreignId('penerbits_id');
             $table->integer('tahun_terbit');
             $table->string('nomor_buku');
             $table->integer('halaman');
             $table->integer('jumlah');
-            $table->foreignId('kategori');
+            $table->foreignId('kategoris_id');
             $table->timestamps();
         });
     }
