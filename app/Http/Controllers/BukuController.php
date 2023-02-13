@@ -12,7 +12,7 @@ class BukuController extends Controller
 {
     public function index()
     {
-        $data = BukuModel::all();
+        $data = BukuModel::with('kategoris')->get();
         $kategori = KategoriModel::all();
         $penerbit = PenerbitModel::all();
 

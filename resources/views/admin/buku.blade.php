@@ -215,7 +215,7 @@
                         <div class="form-group">
                             <label for="nama">Nomor</label>
                             <input type="text" class="form-control" name="nomor_buku" id="nama"
-                                placeholder="Volume Buku">
+                                placeholder="Nomor Buku">
                         </div>
                         <div class="form-group">
                             <label for="nama">Tahun Terbit</label>
