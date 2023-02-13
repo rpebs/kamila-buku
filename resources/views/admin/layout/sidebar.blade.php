@@ -34,16 +34,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/buku" class="nav-link {{ $title == 'Jurnal' ? 'active' : '' }}">
+                    <a href="/admin/buku" class="nav-link {{ $title == 'Data Buku' ? 'active' : '' }}">
                         <i class="nav-icon fas fa-book"></i>
                         <p>
-                            Data Jurnal
+                            Data Buku
                         </p>
                     </a>
                 </li>
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                <li class="nav-item {{ $title == 'Kategori' || $title == 'Penerbit' ? 'menu-open' : '' }}">
+                <li class="nav-item {{ $title == 'Data Kategori' || $title == 'Data Penerbit' ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -54,14 +54,14 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('data.kategori') }}"
-                                class="nav-link {{ $title == 'Kategori' ? 'active' : '' }}">
+                                class="nav-link {{ $title == 'Data Kategori' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Kategori</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('data.penerbit') }}"
-                                class="nav-link {{ $title == 'Penerbit' ? 'active' : '' }}">
+                                class="nav-link {{ $title == 'Data Penerbit' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Penerbit</p>
                             </a>

@@ -85,7 +85,7 @@
                                                     <input type="hidden" name="id" value="{{ $d->id }}">
                                                     <div class="form-group">
                                                         <label for="nama">Nama Kategori</label>
-                                                        <input type="text" class="form-control" name="nama_kategori"
+                                                        <input type="text" class="form-control" name="nama"
                                                             id="nama" value="{{ $d->nama }}">
                                                     </div>
                                             </div>

@@ -53,7 +53,7 @@
                             @foreach ($data as $d)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $d->penerbit }}</td>
+                                    <td>{{ $d->nama }}</td>
                                     <td>
                                         <button class="btn btn-sm btn-primary" data-toggle="modal"
                                             data-target="#editmodal{{ $d->id }}"><i
@@ -85,8 +85,8 @@
                                                     <input type="hidden" name="id" value="{{ $d->id }}">
                                                     <div class="form-group">
                                                         <label for="nama">Nama penerbit</label>
-                                                        <input type="text" class="form-control" name="penerbit"
-                                                            id="nama" value="{{ $d->penerbit }}">
+                                                        <input type="text" class="form-control" name="nama"
+                                                            id="nama" value="{{ $d->nama }}">
                                                     </div>
                                             </div>
                                             <div class="modal-footer">
@@ -124,7 +124,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="nama">Nama penerbit</label>
-                            <input type="text" class="form-control" name="penerbit" id="nama"
+                            <input type="text" class="form-control" name="nama" id="nama"
                                 placeholder="Nama penerbit">
                         </div>
                 </div>

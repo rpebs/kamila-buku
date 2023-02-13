@@ -28,4 +28,30 @@ class KategoriController extends Controller
             return back()->withErrors($message)->withInput();
         }
     }
+
+    public function edit(Request $request)
+    {
+        $validate = $request->validate([
+            'nama' => 'required'
+        ]);
+
+        try {
+            $data = KategoriModel::where('id', $request->id)->update($validate);
+            return back()->with('success', 'Data Berhasil Diubah');
+        } catch (Exception $e) {
+            $message = $e->getMessage();
+            return back()->withErrors($message)->withInput();
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            KategoriModel::destroy($id);
+            return back()->with('success', 'Data Berhasil Dihapus');
+        } catch (Exception $e) {
+            $message = $e->getMessage();
+            return back()->withErrors($message)->withInput();
+        }
+    }
 }
